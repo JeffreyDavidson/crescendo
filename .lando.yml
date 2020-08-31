@@ -1,0 +1,4 @@
+name: crescendo
+recipe: laravel
+config:
+  webroot: public/
