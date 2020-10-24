@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -27,10 +28,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
+        Schema::dropIfExists('categories');
     }
 }

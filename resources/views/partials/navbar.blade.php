@@ -5,15 +5,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="ml-4 navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Flute <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Piano</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Hand Bells</a>
-        </li>
+        @foreach ($categories as $category)
+            <li class="nav-item active">
+                <a class="nav-link" href="/{{ Str::slug($category->name) }}">{{ $category->name }} <span class="sr-only">(current)</span></a>
+            </li>
+        @endforeach
       </ul>
     </div>
   </nav>

@@ -15,4 +15,4 @@ use App\Http\Controllers\MusicPieceController;
 */
 
 Route::get('/', [MusicPieceController::class, 'index'])->name('home');
-Route::get('music', [MusicPieceController::class, 'index']);
+Route::get('{category}', [MusicPieceController::class, 'index']);

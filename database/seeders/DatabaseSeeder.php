@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         if (Category::count() == 0) {
-            Category::create(['name' => 'Flute']);
-            Category::create(['name' => 'Piano']);
-            Category::create(['name' => 'Hand Bells']);
+            Category::create(['name' => 'Flute', 'slug' => 'flute']);
+            Category::create(['name' => 'Piano', 'slug' => 'piano']);
+            Category::create(['name' => 'Hand Bells', 'slug' => 'hand-bells']);
         }
 
         Model::unguard();
