@@ -13,11 +13,14 @@ class MusicalPieces extends Component
 {
     use WithPagination;
 
+    public $search = '';
+
     protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
         $musicalPieces = MusicPiece::query()
+                                ->search('title', $this->search)
                                 ->with('composers', 'arrangers', 'instruments')
                                 ->orderBy('title')
                                 ->paginate(10);

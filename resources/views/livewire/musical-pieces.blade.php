@@ -1,5 +1,8 @@
 <div>
-    <table class="table table-striped table-bordered">
+    <div class="w-25">
+        <input class="form-control" wire:model="search" type="text" placeholder="Search Musical Pieces">
+    </div>
+    <table class="table mt-4 table-striped table-bordered">
         <thead>
             <tr>
                 <th scope="col">Title</th>
