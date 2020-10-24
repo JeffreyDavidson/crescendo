@@ -10,7 +10,7 @@
                         <h4>Musical Works</h4>
                     </div>
                     <div class="card-body">
-                        <livewire:musical-pieces />
+                        <livewire:musical-pieces :category="$category" />
                     </div>
                 </div>
           </div>

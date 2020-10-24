@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use Illuminate\Support\Str;
+
 class MusicPieceController extends Controller
 {
     /**
@@ -11,6 +14,12 @@ class MusicPieceController extends Controller
      */
     public function index()
     {
-        return view('music.index');
+        $category = Category::where('slug', Str::ucfirst(request()->segment(1)))->firstOrFail();
+        $categories = Category::all();
+
+        return view('music.index', [
+            'categories' => $categories,
+            'category' => $category->id
+        ]);
     }
 }
