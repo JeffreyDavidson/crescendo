@@ -10,9 +10,12 @@ use App\MusicPiece;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class DatabaseSeeder extends Seeder
 {
+    use WithFaker;
+
     protected $toTruncate = [
         'musical_pieces',
         'composers',
@@ -42,12 +45,17 @@ class DatabaseSeeder extends Seeder
             DB::table($table)->truncate();
         }
 
-        MusicPiece::factory()
-                ->has(Composer::factory()->count(3))
-                ->has(Arranger::factory()->count(3))
-                ->has(Instrument::factory()->count(3))
-                ->count(50)
-                ->create(['category_id' => Category::inRandomOrder()->first()->id]);
+        foreach (Category::get() as $category) {
+            MusicPiece::factory()
+                ->has(Composer::factory()->count(rand(1, 3)))
+                ->has(Arranger::factory()->count(rand(1, 3)))
+                ->has(Instrument::factory()->count(rand(1, 3)))
+                ->count(20)
+                ->create([
+                    'category_id' => $category->id
+                ]);
+        }
+
 
         Model::reguard();
     }
