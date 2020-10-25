@@ -14,5 +14,5 @@ use App\Http\Controllers\MusicPieceController;
 |
 */
 
-Route::get('/', [MusicPieceController::class, 'index'])->name('home');
-Route::get('music', [MusicPieceController::class, 'index']);
+Route::redirect('/', 'flute')->name('home');
+Route::get('{category}', [MusicPieceController::class, 'index'])->name('music');
