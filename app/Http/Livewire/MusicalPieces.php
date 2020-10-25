@@ -12,6 +12,8 @@ class MusicalPieces extends Component
 
     public $search = '';
     public $category = 1;
+    public $minimumOctaves;
+    public $maximumOctaves;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -28,6 +30,22 @@ class MusicalPieces extends Component
         $this->gotoPage(1);
     }
 
+    /**
+     *  Livewire Lifecycle Hook
+     */
+    public function updatingMinimumOctaves(): void
+    {
+        $this->gotoPage(1);
+    }
+
+    /**
+     *  Livewire Lifecycle Hook
+     */
+    public function updatingMaximumOctaves(): void
+    {
+        $this->gotoPage(1);
+    }
+
     public function render()
     {
         $musicalPieces = MusicPiece::query()
@@ -36,6 +54,8 @@ class MusicalPieces extends Component
                                 ->searchRelationship('composers', 'name', $this->search)
                                 ->searchRelationship('arrangers', 'name', $this->search)
                                 ->searchRelationship('instruments', 'name', $this->search)
+                                ->search('minimum_octaves', $this->minimumOctaves)
+                                ->search('maximum_octaves', $this->maximumOctaves)
                                 ->with('composers', 'arrangers', 'instruments')
                                 ->orderBy('title')
                                 ->paginate(10);

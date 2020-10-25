@@ -17,6 +17,8 @@ class CreateMusicPiecesTable extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('title');
+            $table->tinyInteger('minimum_octaves')->nullable();
+            $table->tinyInteger('maximum_octaves')->nullable();
             $table->timestamps();
         });
     }
