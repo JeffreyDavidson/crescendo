@@ -1,60 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('partials.navbar')
     <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
-        <div class="absolute top-0 right-0 mt-4 mr-4">
-            @if (Route::has('login'))
-                <div class="space-x-4">
-                    @auth
-                        <a
-                            href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
-                        >
-                            Log out
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
-
-        <div class="flex items-center justify-center">
-            <div class="flex flex-col justify-around">
-                <div class="space-y-6">
-                    <a href="{{ route('home') }}">
-                        <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
-                    </a>
-
-                    <h1 class="text-5xl font-extrabold tracking-wider text-center text-gray-600">
-                        {{ config('app.name') }}
-                    </h1>
-
-                    <ul class="list-reset">
-                        <li class="inline px-4">
-                            <a href="https://tailwindcss.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Tailwind CSS</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://github.com/alpinejs/alpine" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Alpine.js</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://laravel.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Laravel</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://laravel-livewire.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Livewire</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="mt-4">
+            <h4 class="text-gray-600">Music Pieces</h4>
+            <a href="{{ route('music.create') }}">+ Music Pieces</a>
+            <div class="mt-6">
+              <div class="my-6 overflow-hidden bg-white rounded-md shadow">
+                <table class="w-full text-left border-collapse">
+                  <thead class="border-b">
+                    <tr>
+                      <th class="px-5 py-3 text-sm font-medium text-gray-100 uppercase bg-indigo-800">Title</th>
+                      <th class="px-5 py-3 text-sm font-medium text-gray-100 uppercase bg-purple-800">Composer</th>
+                      <th class="px-5 py-3 text-sm font-medium text-gray-100 uppercase bg-purple-800">Arranger</th>
+                      <th class="px-5 py-3 text-sm font-medium text-gray-100 uppercase bg-purple-800">Instrumentation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="hover:bg-gray-200">
+                      <td class="px-6 py-4 text-lg text-gray-700 border-b">Joyful Joyful</td>
+                      <td class="px-6 py-4 text-gray-500 border-b">Ludwig van Beethoven</td>
+                      <td class="px-6 py-4 text-gray-500 border-b">Mozart</td>
+                      <td class="px-6 py-4 text-gray-500 border-b">Flute and Piano</td>
+                    </tr>
+                    <tr class="hover:bg-gray-200">
+                        <td class="px-6 py-4 text-lg text-gray-700 border-b">Joyful Joyful</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Ludwig van Beethoven</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Mozart</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Flute and Piano</td>
+                      </tr>
+                      <tr class="hover:bg-gray-200">
+                        <td class="px-6 py-4 text-lg text-gray-700 border-b">Joyful Joyful</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Ludwig van Beethoven</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Mozart</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Flute and Piano</td>
+                      </tr>
+                      <tr class="hover:bg-gray-200">
+                        <td class="px-6 py-4 text-lg text-gray-700 border-b">Joyful Joyful</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Ludwig van Beethoven</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Mozart</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Flute and Piano</td>
+                      </tr>
+                      <tr class="hover:bg-gray-200">
+                        <td class="px-6 py-4 text-lg text-gray-700 border-b">Joyful Joyful</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Ludwig van Beethoven</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Mozart</td>
+                        <td class="px-6 py-4 text-gray-500 border-b">Flute and Piano</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-        </div>
+          </div>
     </div>
 @endsection
