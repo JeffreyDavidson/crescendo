@@ -19,7 +19,7 @@ class MusicPieceController extends Controller
 
         return view('music.index', [
             'categories' => $categories,
-            'category' => $category->id
+            'category' => $category,
         ]);
     }
 }

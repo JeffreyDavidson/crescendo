@@ -11,7 +11,7 @@ class MusicalPieces extends Component
     use WithPagination;
 
     public $search = '';
-    public $category = 1;
+    public $category;
     public $minimumOctaves;
     public $maximumOctaves;
 
@@ -49,7 +49,7 @@ class MusicalPieces extends Component
     public function render()
     {
         $musicalPieces = MusicPiece::query()
-                                ->where('category_id', $this->category)
+                                ->search('category_id', $this->category->id)
                                 ->search('title', $this->search)
                                 ->searchRelationship('composers', 'name', $this->search)
                                 ->searchRelationship('arrangers', 'name', $this->search)
