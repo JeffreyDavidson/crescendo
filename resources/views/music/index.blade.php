@@ -8,6 +8,7 @@
                 <div class="mt-5 card card-custom">
                     <div class="d-flex justify-content-between card-header">
                         <h4>Musical Works</h4>
+                        <a href="{{ route('music.create', $category->slug) }}">Add Music Piece</a>
                     </div>
                     <div class="card-body">
                         <livewire:musical-pieces :category="$category" />
