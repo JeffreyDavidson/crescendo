@@ -33,10 +33,12 @@ class MusicPieceController extends Controller
      */
     public function create()
     {
+        $category = Category::where('slug', Str::ucfirst(request()->segment(1)))->firstOrFail();
         $categories = Category::all();
 
         return view('music.create', [
-            'categories' => $categories
+            'categories' => $categories,
+            'category' => $category,
         ]);
     }
 }
