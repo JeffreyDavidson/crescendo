@@ -25,6 +25,7 @@ class MusicalPiecesForm extends Component
     public $k = 1;
     public $minimumOctaves;
     public $maximumOctaves;
+    public $successMessage;
 
     protected function rules()
     {
@@ -171,6 +172,8 @@ class MusicalPiecesForm extends Component
                 $musicalPiece->instruments()->attach([$instrument->id]);
             }
         }
+
+        $this->successMessage = 'Music Piece successfully created!';
 
         $this->resetForm();
     }

@@ -79,6 +79,12 @@
             @endif
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-inline-flex align-items-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                @if ($successMessage)
+                    <p class="mt-2 ml-2 text-success">{{ $successMessage }}</p>
+                @endif
+            </div>
+        </div>
     </div>
 </form>
