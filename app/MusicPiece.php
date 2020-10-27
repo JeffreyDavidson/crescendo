@@ -16,6 +16,13 @@ class MusicPiece extends Model
      */
     protected $table = 'musical_pieces';
 
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
     public function composers()
     {
         return $this->belongsToMany(Composer::class);

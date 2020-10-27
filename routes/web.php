@@ -16,3 +16,4 @@ use App\Http\Controllers\MusicPieceController;
 
 Route::redirect('/', 'flute')->name('home');
 Route::get('{category}', [MusicPieceController::class, 'index'])->name('music');
+Route::get('{category}/create', [MusicPieceController::class, 'create'])->name('music.create');
