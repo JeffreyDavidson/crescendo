@@ -1,0 +1,26 @@
+models:
+  Composer:
+    name: string
+    relationships:
+      belongsToMany: MusicalPiece
+  Arranger:
+    name: string
+    relationships:
+      belongsToMany: MusicalPiece
+  Instrument:
+    name: string
+    relationships:
+      belongsToMany: MusicalPiece
+  Category:
+    name: string
+    slug: string
+    relationships:
+      hasMany: MusicalPiece
+  MusicalPiece:
+    title: string
+    category_id: unsignedInteger
+    minimum_octaves: unsignedInteger nullable
+    maximum_octaves: unsignedInteger nullable
+    relationships:
+      belongsTo: Category
+      belongsToMany: Composer, Arranger, Instrument
